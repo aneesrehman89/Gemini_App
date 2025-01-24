@@ -1,0 +1,5 @@
+npm install => node module
+gemini api => used for query
+for speck => used js built-in func 
+                const a = new SpeechSynthesisUtterance(response);
+                window.speechSynthesis.speak(a)
