@@ -1,28 +1,28 @@
-import { useState, useRef } from 'react';
-import './App.css';
-import axios from 'axios';
+import { useState, useRef } from "react";
+import "./App.css";
+import axios from "axios";
 
 function App() {
-  const [question, setQuestion] = useState('');
+  const [question, setQuestion] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const synth = window.speechSynthesis;
-  
+
   // Use ref to store the latest response
-  const responseRef = useRef('');
+  const responseRef = useRef("");
 
   const submitHandler = (e) => {
     e.preventDefault();
     setIsProcessing(true);
 
     axios
-      .post('http://localhost:3000/getResponse', { question })
+      .post("http://localhost:3000/getResponse", { question })
       .then((res) => {
         const newResponse = res.data.response;
         console.log(newResponse);
 
         responseRef.current = newResponse; // Store the response in the ref
-        setQuestion(''); // Clear the question field
+        setQuestion(""); // Clear the question field
 
         // Speak the new response
         speakNewResponse(newResponse);
@@ -71,7 +71,7 @@ function App() {
         speakNewResponse(latestResponse);
       }
     } else {
-      console.log('No response to speak.');
+      console.log("No response to speak.");
     }
   };
 
@@ -82,16 +82,17 @@ function App() {
           <img
             className="pic"
             alt="profile pic"
-            src={require('../src/assets/anees.jpg')}
+            src={require("../src/assets/anees.jpg")}
           />
         </div>
         <p className="label">Question</p>
         <textarea
           value={question}
+          style={{ resize: "none" }}
           onChange={(e) => setQuestion(e.target.value)}
         />
         <button onClick={submitHandler} disabled={isProcessing}>
-          {isProcessing ? 'Processing...' : 'Send'}
+          {isProcessing ? "Processing..." : "Send"}
         </button>
       </div>
       <div className="box">
@@ -99,14 +100,17 @@ function App() {
           <img
             className="pic"
             alt="profile pic"
-            src={require('../src/assets/gemini AI.png')}
+            src={require("../src/assets/gemini AI.png")}
           />
         </div>
         <p className="label">Response</p>
-        <textarea value={responseRef.current} readOnly />
-        <button onClick={speakHandler}>
-          {isSpeaking ? 'Pause' : 'Speak'}
-        </button>
+        <textarea
+          value={responseRef.current}
+          readOnly
+          style={{ resize: "none" }}
+        />
+
+        <button onClick={speakHandler}>{isSpeaking ? "Pause" : "Speak"}</button>
       </div>
     </div>
   );
