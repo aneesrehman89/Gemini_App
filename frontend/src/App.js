@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import "./App.css";
 import axios from "axios";
+import aneesPic from "./assets/anees.jpg";
+import geminiPic from "./assets/gemini AI.png";
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -82,7 +84,7 @@ function App() {
           <img
             className="pic"
             alt="profile pic"
-            src={require("../src/assets/anees.jpg")}
+            src={aneesPic}
           />
         </div>
         <p className="label">Question</p>
@@ -100,7 +102,7 @@ function App() {
           <img
             className="pic"
             alt="profile pic"
-            src={require("../src/assets/gemini AI.png")}
+            src={geminiPic}
           />
         </div>
         <p className="label">Response</p>
