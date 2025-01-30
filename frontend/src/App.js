@@ -16,7 +16,7 @@ function App() {
     setIsProcessing(true);
 
     axios
-      .post("http://localhost:3001/getResponse", { question })
+      .post("https://gemini-app-backend.vercel.app/getResponse", { question })
       .then((res) => {
         const newResponse = res.data.response;
         console.log(newResponse);
