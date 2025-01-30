@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import aneesPic from "./assets/anees.jpg";
@@ -12,6 +12,23 @@ function App() {
 
   // Use ref to store the latest response
   const responseRef = useRef("");
+
+  useEffect(() => {
+    // Stop speech when the page is reloaded or closed
+    const stopSpeechOnReload = () => {
+      if (synth.speaking || synth.paused) {
+        synth.cancel(); // Ensure speech is canceled
+      }
+    };
+
+    // Add an event listener to handle beforeunload
+    window.addEventListener("beforeunload", stopSpeechOnReload);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("beforeunload", stopSpeechOnReload);
+    };
+  }, [synth]);
 
   const submitHandler = (e) => {
     e.preventDefault();
