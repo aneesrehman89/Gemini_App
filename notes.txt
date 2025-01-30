@@ -3,3 +3,7 @@ gemini api => used for query
 for speck => used js built-in func 
                 const a = new SpeechSynthesisUtterance(response);
                 window.speechSynthesis.speak(a)
+
+
+https://www.youtube.com/watch?v=Cfi0mymfKiA (deploy)
+https://github.com/YousafKhan1/Deploy_MERN/blob/main/server/vercel.json (git account)

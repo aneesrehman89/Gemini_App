@@ -16,7 +16,7 @@ function App() {
     setIsProcessing(true);
 
     axios
-      .post("http://localhost:3000/getResponse", { question })
+      .post("http://localhost:3001/getResponse", { question })
       .then((res) => {
         const newResponse = res.data.response;
         console.log(newResponse);
