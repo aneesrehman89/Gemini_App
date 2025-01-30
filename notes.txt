@@ -1,0 +1,15 @@
+npm install => node module
+gemini api => used for query
+for speck => used js built-in func 
+                 
+      const utterance = new SpeechSynthesisUtterance(text);
+
+      // Track the speaking state
+      utterance.onstart = () => setIsSpeaking(true);
+      utterance.onend = () => setIsSpeaking(false);
+      utterance.onerror = () => setIsSpeaking(false);
+
+
+ // vercel deploy 
+https://www.youtube.com/watch?v=Cfi0mymfKiA (deploy)
+https://github.com/YousafKhan1/Deploy_MERN/blob/main/server/vercel.json (git account)
