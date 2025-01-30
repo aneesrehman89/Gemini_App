@@ -8,7 +8,7 @@ require('dotenv').config()
 app.use(bodyParser.json());
 
 const corsOptions = {
-    origin: "https://gemini-app-frontend.vercel.app/",
+    origin: "https://gemini-app-frontend.vercel.app",
     methods: ["GET", "POST"],
   };
   app.use(cors(corsOptions));
