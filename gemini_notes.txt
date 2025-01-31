@@ -3,6 +3,7 @@ gemini api => used for query
 for speck => used js built-in func 
                 const a = new SpeechSynthesisUtterance(response);
                 window.speechSynthesis.speak(a)
+503 => Service Unavailable
 
 
 https://www.youtube.com/watch?v=Cfi0mymfKiA (deploy)

@@ -33,16 +33,13 @@ function App() {
   const submitHandler = (e) => {
     e.preventDefault();
     setIsProcessing(true);
-
     axios
-      .post("https://gemini-app-backend.vercel.app/getResponse", { question })
+      .post("/getResponse", { question })
       .then((res) => {
         const newResponse = res.data.response;
         console.log(newResponse);
 
         responseRef.current = newResponse; // Store the response in the ref
-        setQuestion(""); // Clear the question field
-
         // Speak the new response
         speakNewResponse(newResponse);
       })
