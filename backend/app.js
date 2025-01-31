@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 const corsOptions = {
     origin: ['http://localhost:3000', 'https://gemini-app-frontend.vercel.app'],
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST']
   };
   app.use(cors(corsOptions));
   
